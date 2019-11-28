@@ -1,0 +1,16 @@
+version: '2'
+services:
+  student-service:
+    image: student-service:v5
+    depends_on:
+    - discovery
+  discovery:
+    image: eurekaserver:v3
+    ports:
+    - "8761:8761"
+  apigateway:
+    image: zuulgateway-docker:v3
+    depends_on:
+    - discovery
+    ports:
+    - "8082:8082"
