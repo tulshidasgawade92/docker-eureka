@@ -1,15 +1,15 @@
-version: '2'
+version: '1'
 services:
   student-service:
-    image: student-service:v5
+    image: student-service:v1
     depends_on:
     - discovery
   discovery:
-    image: eurekaserver:v3
+    image: eurekaserver:v1
     ports:
     - "8761:8761"
   apigateway:
-    image: zuulgateway-docker:v3
+    image: zuulgateway-docker:v1
     depends_on:
     - discovery
     ports:
